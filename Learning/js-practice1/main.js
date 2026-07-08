@@ -70,12 +70,12 @@ console.log(myFactorial(0, myFormatPrint)); // 'Factorial of 0 is 1'
  */
 
 const calculatePrice = (discount, price) => {
-    // Твій код
+    return price - (price * discount / 100)
 }
 
-// const blackFridayPrice =
-// const memberPrice =
+const blackFridayPrice = calculatePrice.bind(undefined, 50)
+const memberPrice = calculatePrice.bind(undefined, 10)
 
 // Приклади для перевірки:
-// console.log(blackFridayPrice(1000)); // 500
-// console.log(memberPrice(1000));      // 900
+console.log(blackFridayPrice(1000)); // 500
+console.log(memberPrice(1000));      // 900
