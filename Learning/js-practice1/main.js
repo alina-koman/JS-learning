@@ -79,3 +79,24 @@ const memberPrice = calculatePrice.bind(undefined, 10)
 // Приклади для перевірки:
 console.log(blackFridayPrice(1000)); // 500
 console.log(memberPrice(1000));      // 900
+
+// #4 Функція перевірки на парність
+const parityFun = (num) => {
+    if (num % 2 === 0) return true
+    return false
+}
+
+console.log(parityFun(3));
+
+// #5 Функція для перевірки чи число просте:
+const rootFun = (n) => { return n ** 0.5 }
+
+const primeFun = (number) => {
+ const root = rootFun(number)
+ for (let i = 2; i <= root; i++) {
+    if (number % i === 0) return 'не просте'
+     return 'просте'
+ }
+}
+
+console.log(primeFun(6));
