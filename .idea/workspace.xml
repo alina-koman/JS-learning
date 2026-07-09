@@ -5,8 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25283649-6ec5-402f-b290-7e3ad0430eb8" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Learning/js-practice1/map_set.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Learning/js-practice1/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/js-practice1/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Learning/js-practice1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/js-practice1/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,6 +21,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
+        <option value="JavaScript File" />
       </list>
     </option>
   </component>
@@ -96,7 +98,8 @@
       <workItem from="1783364118455" duration="5192000" />
       <workItem from="1783453828535" duration="2968000" />
       <workItem from="1783511640956" duration="1052000" />
-      <workItem from="1783536481671" duration="6545000" />
+      <workItem from="1783536481671" duration="7629000" />
+      <workItem from="1783631589572" duration="1680000" />
     </task>
     <servers />
   </component>
