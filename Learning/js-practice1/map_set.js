@@ -48,16 +48,27 @@ console.log(admin.getInfo()); // "Адмін Ігор [Супервайзер] (
  */
 
 // Місце для твого коду:
+class PhoneBook {
+    constructor() {
+        this.books = new Map()
+    }
 
+    addContact(userObj, phoneNumber) {
+        this.books.set(userObj, phoneNumber) 
+    } 
 
+    getNumber(userObj) {
+        if (!this.books.get(userObj)) return 'Not found'
+        return this.books.get(userObj)
+    }
+}
 
 // Перевірка:
-// const book = new PhoneBook();
-// const alex = { id: 1, name: 'Alex' };
-// book.addContact(alex, '+380931112233');
-// console.log(book.getNumber(alex)); // '+380931112233'
-// console.log(book.getNumber({ id: 1, name: 'Alex' })); // 'Not found'
-
+const book = new PhoneBook();
+const alex = { id: 1, name: 'Alex' };
+book.addContact(alex, '+380931112233');
+console.log(book.getNumber(alex)); // '+380931112233'
+console.log(book.getNumber({ id: 1, name: 'Alex' })); // 'Not found'
 
 /*
  * #3 Прототипи (Prototypes): Конструктори
