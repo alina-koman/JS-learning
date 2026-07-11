@@ -80,10 +80,19 @@ console.log(book.getNumber({ id: 1, name: 'Alex' })); // 'Not found'
  *    — Має доступ до методу drive() через ланцюжок прототипів.
  */
 
-// Місце для твого коду:
+function Car(brand) {
+    this.brand = brand
+}
 
+Car.prototype.drive = function() {return `${this.brand} їде`}
 
+function ElectricCar(brand, battery) {
+    Car.call(this, brand)
+    this.battery = battery
+}
+
+Object.setPrototypeOf(ElectricCar.prototype, Car.prototype)
 
 // Перевірка:
-// const tesla = new ElectricCar('Tesla', '100kWh');
-// console.log(tesla.drive()); // "Tesla їде"
+const tesla = new ElectricCar('Tesla', '100kWh');
+console.log(tesla.drive()); // "Tesla їде"
