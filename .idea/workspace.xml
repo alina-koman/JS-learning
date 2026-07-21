@@ -5,7 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25283649-6ec5-402f-b290-7e3ad0430eb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Learning/js-practice1/map_set.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Learning/js-practice1/method.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Learning/js-practice1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/js-practice1/index.html" afterDir="false" />
     </list>
@@ -44,6 +44,65 @@
     <commands />
     <urls />
   </component>
+  <component name="NextEditCompletionFeaturesState">
+    <decayedCancelled>
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.000000000000697" />
+      <entry key="S5" value="1.000013717823817" />
+      <entry key="S10" value="1.0037140537607898" />
+      <entry key="S30" value="1.1811840795365238" />
+      <entry key="S60" value="1.6781872632269226" />
+      <entry key="M2" value="2.967034342433382" />
+      <entry key="M5" value="8.242054698165603" />
+      <entry key="M10" value="17.396298079547027" />
+      <entry key="M15" value="25.32667005931111" />
+      <entry key="M30" value="41.42554635021634" />
+      <entry key="H1" value="56.02723587163427" />
+      <entry key="H2" value="66.17750450135728" />
+      <entry key="H4" value="72.20907026745923" />
+      <entry key="D1" value="77.81102537637801" />
+      <entry key="W1" value="78.82868509245984" />
+    </decayedCancelled>
+    <decayedSelected>
+      <entry key="MS100" value="1.244432958920714E-174" />
+      <entry key="MS500" value="1.6557482358201294E-35" />
+      <entry key="S2" value="2.0171982152870416E-9" />
+      <entry key="S5" value="3.32582707755718E-4" />
+      <entry key="S10" value="0.018251557243658508" />
+      <entry key="S30" value="0.2980541379741661" />
+      <entry key="S60" value="0.7736046750546104" />
+      <entry key="M2" value="1.4707592584385685" />
+      <entry key="M5" value="2.836348140163941" />
+      <entry key="M10" value="5.221477322090672" />
+      <entry key="M15" value="7.5583828332843765" />
+      <entry key="M30" value="12.621760972711968" />
+      <entry key="H1" value="17.376809919182193" />
+      <entry key="H2" value="20.729225905844572" />
+      <entry key="H4" value="22.733923011669077" />
+      <entry key="D1" value="24.60262844055247" />
+      <entry key="W1" value="24.942728846583112" />
+    </decayedSelected>
+    <decayedShown>
+      <entry key="MS100" value="1.6560111419038962E-4" />
+      <entry key="MS500" value="0.17531240633030015" />
+      <entry key="S2" value="0.6470728287878823" />
+      <entry key="S5" value="0.840503100252648" />
+      <entry key="S10" value="0.9365457042236487" />
+      <entry key="S30" value="1.4274398465519214" />
+      <entry key="S60" value="2.4039838175718136" />
+      <entry key="M2" value="4.396040840401076" />
+      <entry key="M5" value="11.038977440185327" />
+      <entry key="M10" value="22.576228973734978" />
+      <entry key="M15" value="32.84392732507254" />
+      <entry key="M30" value="54.0129830075377" />
+      <entry key="H1" value="73.38068665001151" />
+      <entry key="H2" value="86.89291295401561" />
+      <entry key="H4" value="94.9354522067542" />
+      <entry key="D1" value="102.4122993775307" />
+      <entry key="W1" value="103.77121791903708" />
+    </decayedShown>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 2,
   &quot;fromUser&quot;: false
@@ -68,7 +127,7 @@
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;javascript.preferred.runtime.type.id&quot;: &quot;node&quot;,
     &quot;junie.onboarding.icon.badge.shown&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;E:/MY/DEVELOPMENT/JS-learning&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/beyba/Alina-Linux/AlinaALL/MY/DEVELOPMENT/JS-learning&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
@@ -81,7 +140,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-3bd3a6803838-JavaScript-WS-261.22158.274" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.8665.259" />
       </set>
     </attachedChunks>
   </component>
@@ -100,6 +159,9 @@
       <workItem from="1783511640956" duration="1052000" />
       <workItem from="1783536481671" duration="7629000" />
       <workItem from="1783631589572" duration="1680000" />
+      <workItem from="1784662011622" duration="622000" />
+      <workItem from="1784662821070" duration="760000" />
+      <workItem from="1784666064221" duration="4034000" />
     </task>
     <servers />
   </component>
