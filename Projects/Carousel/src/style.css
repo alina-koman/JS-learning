@@ -114,14 +114,14 @@ button:active {
     padding: 10px;
 }
 
-.status {
+.pause {
     flex: 1;
     min-width: 100px;
     background: #81c784;
     font-size: 12px;
 }
 
-.status:hover {
+.pause:hover {
     background: #66bb6a;
 }
 
