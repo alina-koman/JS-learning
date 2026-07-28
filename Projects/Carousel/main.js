@@ -4,6 +4,8 @@ const slide = document.querySelectorAll('.slide')
 const prevSlide = document.querySelector('.prev')
 const nextSlide = document.querySelector('.next')
 const pauseSlide = document.querySelector('.pause')
+const indicatorsContainer = document.querySelector('.indicators')
+const indicator = document.querySelectorAll('.indicator')
 
 const SLIDES_COUNT = slide.length
 const SLIDES_INTERVAL_MS = 1000
@@ -14,10 +16,12 @@ let currentSlide = 0
 
 const gotoNth = (n) => {
     slide[currentSlide].classList.remove('active')
+    indicator[currentSlide].classList.remove('active')
 
     currentSlide = (n + SLIDES_COUNT) % SLIDES_COUNT
 
     slide[currentSlide].classList.add('active')
+    indicator[currentSlide].classList.add('active')
 }
 
 const gotoNext = () => {
@@ -57,8 +61,17 @@ const prevHandler = () => {
     gotoPrev()
 }
 
+const indicatorClickHandler = (e) => {
+    const { target } = e
+    if (target && target.classList.contains('indicator')) {
+        pauseHandler()
+        gotoNth(+target.dataset.slideTo)
+    }
+}
+
 pauseSlide.addEventListener('click', togglePlayHandler)
 prevSlide.addEventListener('click', prevHandler)
 nextSlide.addEventListener('click', nextHandler)
+indicatorsContainer.addEventListener('click', indicatorClickHandler)
 
 tick()
