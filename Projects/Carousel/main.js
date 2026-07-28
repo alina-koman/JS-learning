@@ -7,14 +7,16 @@ const pauseSlide = document.querySelector('.pause')
 
 const SLIDES_COUNT = slide.length
 const SLIDES_INTERVAL_MS = 1000
-const isPlay = true
+let isPlaying = true
 let timerId = null
 
 let currentSlide = 0
 
-const gotoNth = () => {
+const gotoNth = (n) => {
     slide[currentSlide].classList.remove('active')
-    currentSlide = (currentSlide + 1) % SLIDES_COUNT
+
+    currentSlide = (n + SLIDES_COUNT) % SLIDES_COUNT
+
     slide[currentSlide].classList.add('active')
 }
 
@@ -27,23 +29,36 @@ let gotoPrev = () => {
 }
 
 const tick = () => {
-    timerId = setInterval(gotoNth, 1000)
+    timerId = setInterval(gotoNext, 1000)
 }
 
 const pauseHandler = () => {
-    if (!isPlay) return clearInterval(timerId)
+    if (!isPlaying) return
+    clearInterval(timerId)
+    isPlaying = !isPlaying
     pauseSlide.textContent = 'Play'
 }
 
 const playHandler = () => {
     tick()
+    isPlaying = !isPlaying
     pauseSlide.textContent = 'Pause'
 }
 
-const togglePlayHandler = () => {isPlay ? pauseHandler() : playHandler()}
+const togglePlayHandler = () => isPlaying ? pauseHandler() : playHandler()
+
+const nextHandler = () => {
+    pauseHandler()
+    gotoNext()
+}
+
+const prevHandler = () => {
+    pauseHandler()
+    gotoPrev()
+}
 
 pauseSlide.addEventListener('click', togglePlayHandler)
-prevSlide.addEventListener('click', gotoPrev)
-nextSlide.addEventListener('click', gotoNext)
+prevSlide.addEventListener('click', prevHandler)
+nextSlide.addEventListener('click', nextHandler)
 
 tick()
