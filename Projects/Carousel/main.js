@@ -1,121 +1,138 @@
-const carousel = document.querySelector('.carousel')
-const slides = carousel.querySelector('.slides')
-const slide = slides.querySelectorAll('.slide')
-const prevSlide = carousel.querySelector('.prev')
-const nextSlide = carousel.querySelector('.next')
-const pauseSlide = carousel.querySelector('.pause')
-const indicatorsContainer = carousel.querySelector('.indicators')
-const indicator = indicatorsContainer.querySelectorAll('.indicator')
+function Carousel() {}
 
-const SLIDES_COUNT = slide.length
-const SLIDES_INTERVAL_MS = 1000
-let currentSlide = 0
-let isPlaying = true
-let timerId = null
-let swipeStartX = null
-let swipeEndX = null
+Carousel.prototype = {
+    _init_Props() {
+        this.container = document.querySelector('.carousel')
+        this.slides = this.container.querySelector('.slides')
+        this.slide = this.slides.querySelectorAll('.slide')
+        this.prevSlide = this.container.querySelector('.prev')
+        this.nextSlide = this.container.querySelector('.next')
+        this.pauseSlide = this.container.querySelector('.pause')
+        this.indicatorsContainer = this.container.querySelector('.indicators')
+        this.indicator = this.indicatorsContainer.querySelectorAll('.indicator')
 
-const isPlay = 'Play'
-const isPause = 'Pause'
-const SWIPE_INTERVAL = 100
-const ARROW_LEFT = 'ArrowLeft'
-const ARROW_RIGHT = 'ArrowRight'
-const SPACE = 'Space'
+        this.SLIDES_COUNT = this.slide.length
+        this.SLIDES_INTERVAL_MS = 1000
+        this.currentSlide = 0
+        this.isPlaying = true
+        this.timerId = null
+        this.swipeStartX = null
+        this.swipeEndX = null
+
+        this.isPlay = 'Play'
+        this.isPause = 'Pause'
+        this.SWIPE_INTERVAL = 100
+        this.ARROW_LEFT = 'ArrowLeft'
+        this.ARROW_RIGHT = 'ArrowRight'
+        this.SPACE = 'Space'
+    },
+
+    gotoNth (n) {
+        this.slide[this.currentSlide].classList.remove('active')
+        this.indicator[this.currentSlide].classList.remove('active')
+
+        this.currentSlide = (n + this.SLIDES_COUNT) % this.SLIDES_COUNT
+
+        this.slide[this.currentSlide].classList.add('active')
+        this.indicator[this.currentSlide].classList.add('active')
+    },
+
+    gotoNext () {
+        this.gotoNth(this.currentSlide + 1)
+    },
+
+    gotoPrev () {
+        this.gotoNth(this.currentSlide - 1)
+    },
+
+    tick () {
+        this.timerId = setInterval(this.gotoNext, this.SLIDES_INTERVAL_MS)
+    },
+
+    pauseHandler () {
+        if (!this.isPlaying) return
+        clearInterval(this.timerId)
+        this.isPlaying = !this.isPlaying
+        this.pauseSlide.textContent = this.isPlay
+    },
+
+    playHandler () {
+        this.tick()
+        this.isPlaying = !this.isPlaying
+        this.pauseSlide.textContent = this.isPause
+    },
+
+    togglePlayHandler () { this.isPlaying ? this.pauseHandler() : this.playHandler() },
+
+    nextHandler () {
+        this.pauseHandler()
+        this.gotoNext()
+    },
+
+    prevHandler () {
+        this.pauseHandler()
+        this.gotoPrev()
+    },
+
+    indicatorClickHandler (e) {
+        const { target } = e
+        if (target && target.classList.contains('indicator')) {
+            this.pauseHandler()
+            this.gotoNth(+target.dataset.slideTo)
+        }
+    },
+
+    keydownHandler (e) {
+        const { code } = e
+        if (code === this.ARROW_LEFT) return this.prevHandler()
+        if (code === this.ARROW_RIGHT) return this.nextHandler()
+        if (code === this.SPACE) {
+            e.preventDefault()
+            return this.togglePlayHandler()
+        }
+    },
+
+    swipeStartHandler (e) {
+        this.swipeStartX = e instanceof MouseEvent ? e.clientX : e.changedTouches[0].clientX
+    },
+
+    swipeEndHandler (e) {
+        this.swipeEndX = e instanceof MouseEvent ? e.clientX : e.changedTouches[0].clientX
+        const diffX = this.swipeEndX - this.swipeStartX
+        if (diffX > this.SWIPE_INTERVAL) return this.prevHandler()
+        if (diffX < -this.SWIPE_INTERVAL) return this.nextHandler()
+    },
 
 
-const gotoNth = (n) => {
-    slide[currentSlide].classList.remove('active')
-    indicator[currentSlide].classList.remove('active')
+    initEventHandler () {
+        this.pauseSlide.addEventListener('click', this.togglePlayHandler)
+        this.prevSlide.addEventListener('click', this.prevHandler)
+        this.nextSlide.addEventListener('click', this.nextHandler)
+        this.indicatorsContainer.addEventListener('click', this.indicatorClickHandler)
+        document.addEventListener('keydown', this.keydownHandler)
+        this.slides.addEventListener('touchstart', this.swipeStartHandler)
+        this.slides.addEventListener('mousedown', this.swipeStartHandler)
+        this.slides.addEventListener('touchend', this.swipeEndHandler)
+        this.slides.addEventListener('mouseup', this.swipeEndHandler)
+    },
 
-    currentSlide = (n + SLIDES_COUNT) % SLIDES_COUNT
 
-    slide[currentSlide].classList.add('active')
-    indicator[currentSlide].classList.add('active')
-}
-
-const gotoNext = () => {
-    gotoNth(currentSlide + 1)
-}
-
-const gotoPrev = () => {
-    gotoNth(currentSlide - 1)
-}
-
-const tick = () => {
-    timerId = setInterval(gotoNext, SLIDES_INTERVAL_MS)
-}
-
-const pauseHandler = () => {
-    if (!isPlaying) return
-    clearInterval(timerId)
-    isPlaying = !isPlaying
-    pauseSlide.textContent = isPlay
-}
-
-const playHandler = () => {
-    tick()
-    isPlaying = !isPlaying
-    pauseSlide.textContent = isPause
-}
-
-const togglePlayHandler = () => isPlaying ? pauseHandler() : playHandler()
-
-const nextHandler = () => {
-    pauseHandler()
-    gotoNext()
-}
-
-const prevHandler = () => {
-    pauseHandler()
-    gotoPrev()
-}
-
-const indicatorClickHandler = (e) => {
-    const { target } = e
-    if (target && target.classList.contains('indicator')) {
-        pauseHandler()
-        gotoNth(+target.dataset.slideTo)
+    init (){
+        this._init_Props()
+        this.initEventHandler()
+        this.tick()
     }
 }
 
-const keydownHandler = (e) => {
-    const { code } = e
-    if (code === ARROW_LEFT) return prevHandler()
-    if (code === ARROW_RIGHT) return nextHandler()
-    if (code === SPACE) {
-        e.preventDefault()
-        return togglePlayHandler()
-    }
+
+Carousel.prototype.constructor = Carousel
+
+function SwipeCarousel() {
+    Carousel.apply(this)
 }
 
-const swipeStartHandler = (e) => {
-    swipeStartX = e instanceof MouseEvent ? e.clientX : e.changedTouches[0].clientX
-}
+SwipeCarousel.prototype = Object.create(Carousel.prototype)
+SwipeCarousel.prototype.constructor = SwipeCarousel
 
-const swipeEndHandler = (e) => {
-    swipeEndX = e instanceof MouseEvent ? e.clientX : e.changedTouches[0].clientX
-    const diffX = swipeEndX - swipeStartX
-    if (diffX > SWIPE_INTERVAL) return prevHandler()
-    if (diffX < -SWIPE_INTERVAL) return nextHandler()
-}
-
-
-const initEventHandler = () => {
-    pauseSlide.addEventListener('click', togglePlayHandler)
-    prevSlide.addEventListener('click', prevHandler)
-    nextSlide.addEventListener('click', nextHandler)
-    indicatorsContainer.addEventListener('click', indicatorClickHandler)
-    document.addEventListener('keydown', keydownHandler)
-    slides.addEventListener('touchstart', swipeStartHandler)
-    slides.addEventListener('mousedown', swipeStartHandler)
-    slides.addEventListener('touchend', swipeEndHandler)
-    slides.addEventListener('mouseup', swipeEndHandler)
-}
-
-
-const init = () => {
-    initEventHandler()
-    tick()
-}
-
-init()
+const carousel = new Carousel()
+carousel.init()
