@@ -31,3 +31,18 @@ const findUnique = (arr) => {
 }
 
 findUnique(['apple', 'banana', 'apple', 'orange', 'banana']) // ['apple', 'banana', 'orange']
+
+//Написати функцію capitalizeWords(str), яка приймає рядок і повертає новий рядок,
+//у якому кожне слово починається з великої (заглавної) літери.
+
+const capitalizeWords = (str) => {
+    const words = str.split(' ')
+    for (let i = 0; i < words.length; i++) {
+        words[i] = words[i][0].toUpperCase() + words[i].slice(1)
+    }
+
+    return words.join(' ')
+}
+
+capitalizeWords('hello world from javascript') // 'Hello World From Javascript'
+capitalizeWords('functional programming is cool') // 'Functional Programming Is Cool'
