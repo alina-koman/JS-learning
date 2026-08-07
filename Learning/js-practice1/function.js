@@ -14,5 +14,20 @@ const countOccurrences = (arr) => {
     return obj
 }
 
-countOccurrences(['apple', 'banana', 'apple', 'orange', 'banana', 'apple']); // { apple: 3, banana: 2, orange: 1 }
-countOccurrences([1, 2, 2, 3, 1, 1]); // { 1: 3, 2: 2, 3: 1 }
+countOccurrences(['apple', 'banana', 'apple', 'orange', 'banana', 'apple']) // { apple: 3, banana: 2, orange: 1 }
+countOccurrences([1, 2, 2, 3, 1, 1]) // { 1: 3, 2: 2, 3: 1 }
+
+//Написати функцію findUnique(arr), яка приймає масив із числами/стрічками та повертає новий масив,
+//у якому залишені тільки унікальні значення (без дублікатів).
+
+const findUnique = (arr) => {
+    const result = []
+    for (let i = 0; i < arr.length; i++) {
+        if (!result.includes(arr[i])) {
+            result.push(arr[i])
+        }
+    }
+    return result
+}
+
+findUnique(['apple', 'banana', 'apple', 'orange', 'banana']) // ['apple', 'banana', 'orange']
