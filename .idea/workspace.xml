@@ -5,9 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="25283649-6ec5-402f-b290-7e3ad0430eb8" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Learning/js-practice2/regular_expressions.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Learning/js-practice3/main.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Learning/js-practice1/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/Learning/js-practice1/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,7 +14,7 @@
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="EmbeddingIndexingInfo">
-    <option name="cachedIndexableFilesCount" value="17" />
+    <option name="cachedIndexableFilesCount" value="18" />
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -47,61 +46,61 @@
   </component>
   <component name="NextEditCompletionFeaturesState">
     <decayedCancelled>
-      <entry key="MS100" value="1.0008384428090773" />
-      <entry key="MS500" value="1.2452008321418062" />
-      <entry key="S2" value="2.08659491568317" />
-      <entry key="S5" value="3.410578135973978" />
-      <entry key="S10" value="5.53385101958156" />
-      <entry key="S30" value="10.339967294430695" />
-      <entry key="S60" value="13.37520683200395" />
-      <entry key="M2" value="17.517094953038093" />
-      <entry key="M5" value="29.258337449067824" />
-      <entry key="M10" value="45.52453682280008" />
-      <entry key="M15" value="58.19873926417329" />
-      <entry key="M30" value="86.68434912755272" />
-      <entry key="H1" value="127.38327284790391" />
-      <entry key="H2" value="207.89688183019354" />
-      <entry key="H4" value="406.9326458365354" />
-      <entry key="D1" value="1174.0463639585098" />
-      <entry key="W1" value="1477.45280023203" />
+      <entry key="MS100" value="1.0" />
+      <entry key="MS500" value="1.0" />
+      <entry key="S2" value="1.0000000000000002" />
+      <entry key="S5" value="1.0000010638490118" />
+      <entry key="S10" value="1.0018612646993053" />
+      <entry key="S30" value="1.3930031923271176" />
+      <entry key="S60" value="2.964405979634936" />
+      <entry key="M2" value="7.1219196399092635" />
+      <entry key="M5" value="20.19823247862545" />
+      <entry key="M10" value="38.597523229150696" />
+      <entry key="M15" value="53.02015376766025" />
+      <entry key="M30" value="84.66109268269216" />
+      <entry key="H1" value="128.1233715175478" />
+      <entry key="H2" value="210.11460536925185" />
+      <entry key="H4" value="409.291708661633" />
+      <entry key="D1" value="1179.8480130911519" />
+      <entry key="W1" value="1485.8774713544021" />
     </decayedCancelled>
     <decayedSelected>
       <entry key="MS100" value="0.0" />
-      <entry key="MS500" value="2.0926124518997397E-125" />
-      <entry key="S2" value="7.570759560029927E-32" />
-      <entry key="S5" value="4.859599099371239E-13" />
-      <entry key="S10" value="9.649361909799524E-7" />
-      <entry key="S30" value="0.01568871118995898" />
-      <entry key="S60" value="0.1950175905613882" />
-      <entry key="M2" value="0.9215782472343096" />
-      <entry key="M5" value="3.8174217734371854" />
-      <entry key="M10" value="7.905116348888875" />
-      <entry key="M15" value="11.174571017592097" />
-      <entry key="M30" value="19.287183652657163" />
-      <entry key="H1" value="32.108266892245815" />
-      <entry key="H2" value="54.55552858487146" />
-      <entry key="H4" value="96.4196302040015" />
-      <entry key="D1" value="227.5123349019179" />
-      <entry key="W1" value="275.6707327343112" />
+      <entry key="MS500" value="0.0" />
+      <entry key="S2" value="6.922393195252269E-83" />
+      <entry key="S5" value="1.8665824017876693E-33" />
+      <entry key="S10" value="5.980286045838537E-17" />
+      <entry key="S30" value="6.208619657250453E-6" />
+      <entry key="S60" value="0.0038795171860326752" />
+      <entry key="M2" value="0.12998228342234988" />
+      <entry key="M5" value="1.7438572249229112" />
+      <entry key="M10" value="5.342919805642344" />
+      <entry key="M15" value="8.606193758631184" />
+      <entry key="M30" value="16.926179634164974" />
+      <entry key="H1" value="30.078898568625224" />
+      <entry key="H2" value="52.80332861330735" />
+      <entry key="H4" value="94.85860372198219" />
+      <entry key="D1" value="226.89425096327207" />
+      <entry key="W1" value="275.5636199426743" />
     </decayedSelected>
     <decayedShown>
-      <entry key="MS100" value="0.9600518554183081" />
-      <entry key="MS500" value="1.2338782672140607" />
-      <entry key="S2" value="2.0808909324225113" />
-      <entry key="S5" value="3.4064707437192845" />
-      <entry key="S10" value="5.530493200908067" />
-      <entry key="S30" value="10.35184997331882" />
-      <entry key="S60" value="13.560282415041618" />
-      <entry key="M2" value="18.42032648416248" />
-      <entry key="M5" value="33.04237115758589" />
-      <entry key="M10" value="53.38717892362203" />
-      <entry key="M15" value="69.32974492303813" />
-      <entry key="M30" value="105.93165301184122" />
-      <entry key="H1" value="159.45884617968244" />
-      <entry key="H2" value="262.42542600965777" />
-      <entry key="H4" value="503.3286652643729" />
-      <entry key="D1" value="1401.5493474902835" />
-      <entry key="W1" value="1753.121908914817" />
+      <entry key="MS100" value="0.22845786255735012" />
+      <entry key="MS500" value="0.7443226275832698" />
+      <entry key="S2" value="0.9288387074959013" />
+      <entry key="S5" value="0.9709046865496245" />
+      <entry key="S10" value="0.9872045205419125" />
+      <entry key="S30" value="1.3880195673392102" />
+      <entry key="S60" value="2.96545709055471" />
+      <entry key="M2" value="7.24789820637294" />
+      <entry key="M5" value="21.926226104498433" />
+      <entry key="M10" value="43.91141950037554" />
+      <entry key="M15" value="61.592582081338534" />
+      <entry key="M30" value="101.55216641021971" />
+      <entry key="H1" value="158.17158856478997" />
+      <entry key="H2" value="262.8917890048045" />
+      <entry key="H4" value="504.1270702164202" />
+      <entry key="D1" value="1406.732935811428" />
+      <entry key="W1" value="1761.4394675511096" />
     </decayedShown>
   </component>
   <component name="ProjectColorInfo">{
@@ -109,6 +108,9 @@
   &quot;fromUser&quot;: false
 }</component>
   <component name="ProjectId" id="3Fe1n9KSHsG9qCYtXieXrUwykWo" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -128,7 +130,7 @@
     "ignore.virus.scanning.warn.message": "true",
     "javascript.preferred.runtime.type.id": "node",
     "junie.onboarding.icon.badge.shown": "true",
-    "last_opened_file_path": "/home/beyba/Alina-Linux/AlinaALL/MY/DEVELOPMENT/JS-learning",
+    "last_opened_file_path": "/home/beyba/Alina-Linux/AlinaALL/MY/HILLEL/Homework/js-hw19-tests-master",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.jshint": "true",
@@ -138,6 +140,7 @@
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
     "to.speed.mode.migration.done": "true",
+    "ts.external.directory.path": "/home/beyba/Alina-Linux/AlinaALL/MY/DEVELOPMENT/JS-learning/node_modules/@typescript/typescript-linux-x64/lib",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -149,7 +152,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.8665.259" />
+        <option value="bundled-js-predefined-d6986cc7102b-4abd2a77f808-JavaScript-WS-262.9437.145" />
       </set>
     </attachedChunks>
   </component>
@@ -183,7 +186,9 @@
       <workItem from="1786047909172" duration="1748000" />
       <workItem from="1786097470667" duration="5816000" />
       <workItem from="1786475345134" duration="628000" />
-      <workItem from="1786739617498" duration="1246000" />
+      <workItem from="1786739617498" duration="2030000" />
+      <workItem from="1786901558260" duration="143000" />
+      <workItem from="1787165422639" duration="1013000" />
     </task>
     <servers />
   </component>
