@@ -20,10 +20,10 @@ function App() {
                         console.log(users)
                         setUsers(users)
                     })
-                    .catch((error) => {
-                        console.log(error)
-                    })
-                    .finally(() => setLoading(false))
+            } catch(error) {
+                console.log(error)
+            } finally {
+                setLoading(false)
             }
         }
 
