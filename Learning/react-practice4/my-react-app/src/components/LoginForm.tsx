@@ -1,31 +1,21 @@
 import {type ChangeEvent, type SubmitEvent, useState} from 'react';
 
-interface FormData {
-    username: string;
-    password: string;
-}
+const useInput = (initialValue: string) => {
+  const [value, setValue] = useState<string>(initialValue)
 
-const initialFormData : FormData = {
-    username: "admin",
-    password: "123",
+  return {
+    value,
+    onChange: (e: ChangeEvent<HTMLInputElement>) => setValue(e.target.value),
+  }
 }
 
 const LoginForm = () => {
-    const [formData, setFormData] = useState(initialFormData)
+  const username = useInput('admin')
+  const password = useInput('123')
+
     const handleSubmit = (e: SubmitEvent<HTMLFormElement>) => {
         e.preventDefault()
-        console.log(initialFormData.username, initialFormData.password)
-    }
-
-    const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
-        const { name, value } = e.target
-        setFormData(prevData => (
-            { ...prevData,
-              [name]: value }
-          )
-        )
-
-
+        console.log(username.value, password.value)
     }
 
     return (
@@ -38,8 +28,7 @@ const LoginForm = () => {
                 id="username"
                 name="username"
                 placeholder="Username"
-                value={formData.username}
-                onChange={handleChange}
+                {...username}
             />
           </div>
 
@@ -51,8 +40,7 @@ const LoginForm = () => {
                 id="password"
                 name="password"
                 placeholder="Password"
-                value={formData.password}
-                onChange={handleChange}
+                {...password}
             />
           </div>
 
