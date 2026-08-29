@@ -8,15 +8,26 @@ interface User {
 
 function App() {
     const [users, setUsers] = useState<User[]>([])
+    const [loading, setLoading] = useState<boolean>(false);
+    const [error, setError] = useState<string | null>(null);
 
     useEffect(() => {
-        fetch('https://jsonplaceholder.typicode.com/users')
-            .then(response => response.json())
-            .then((users) => {
-                console.log(users)
-                setUsers(users)
-            })
-            .catch(error => console.log(error))
+        const fetchDataAndHandleLoading = async () => {
+            try {
+                fetch('https://jsonplaceholder.typicode.com/users')
+                    .then(response => response.json())
+                    .then((users) => {
+                        console.log(users)
+                        setUsers(users)
+                    })
+                    .catch((error) => {
+                        console.log(error)
+                    })
+                    .finally(() => setLoading(false))
+            }
+        }
+
+        fetchDataAndHandleLoading()
     }, [])
 
     if (users.length === 0) {
