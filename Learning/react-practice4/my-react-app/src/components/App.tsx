@@ -1,5 +1,6 @@
 // import LoginForm from "./LoginForm.tsx";
 import {useEffect, useState} from "react";
+import {fetchData} from "../api/api.ts";
 
 interface User {
     id: number;
@@ -8,20 +9,20 @@ interface User {
 
 function App() {
     const [users, setUsers] = useState<User[]>([])
-    const [loading, setLoading] = useState<boolean>(false);
-    const [error, setError] = useState<string | null>(null);
+    const [isLoading, setLoading] = useState<boolean>(true );
+    const [isError, setError] = useState<string | null>(null);
 
     useEffect(() => {
         const fetchDataAndHandleLoading = async () => {
             try {
-                fetch('https://jsonplaceholder.typicode.com/users')
-                    .then(response => response.json())
-                    .then((users) => {
-                        console.log(users)
-                        setUsers(users)
-                    })
-            } catch(error) {
-                console.log(error)
+                setLoading(true)
+                setError(null)
+
+            const data = await fetchData()
+                 setUsers(data)
+            } catch(error: unknown) {
+                if(error instanceof Error)
+                    setError(error.message)
             } finally {
                 setLoading(false)
             }
@@ -30,8 +31,15 @@ function App() {
         fetchDataAndHandleLoading()
     }, [])
 
-    if (users.length === 0) {
-        return <h3>Wrongggg</h3>
+    if (isError) {
+        return <div>
+            <h3>Something went wrong</h3>
+            <h3>{isError}</h3>
+        </div>
+    }
+
+    if (isLoading) {
+        return <h3>Loading...</h3>;
     }
 
   return <div>
