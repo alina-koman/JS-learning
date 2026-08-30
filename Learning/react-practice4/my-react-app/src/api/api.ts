@@ -1,6 +1,8 @@
+import type {UserInterface} from "../types/user.interface.ts";
+
 const  API_URL = 'https://jsonplaceholder.typicode.com/users'
 
-export const fetchData = async () => {
+export const fetchData = async (): Promise<UserInterface[]> => {
     try {
         await new Promise(resolve => setTimeout(resolve, 2000))
         const response = await fetch(API_URL)

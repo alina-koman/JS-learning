@@ -1,14 +1,11 @@
 // import LoginForm from "./LoginForm.tsx";
 import {useEffect, useState} from "react";
 import {fetchData} from "../api/api.ts";
+import type {UserInterface} from "../types/user.interface.ts";
 
-interface User {
-    id: number;
-    name: string
-}
 
 function App() {
-    const [users, setUsers] = useState<User[]>([])
+    const [users, setUsers] = useState<UserInterface[]>([])
     const [isLoading, setLoading] = useState<boolean>(true );
     const [isError, setError] = useState<string | null>(null);
 
