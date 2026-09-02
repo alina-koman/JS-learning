@@ -13,11 +13,9 @@ const OPTIONS = {
     }
 }
 
-const simulateError = () => Math.random() > 0.5
-
-export const fetchData: Promise<UserInterface[]> = (async () => {
+export const fetchData = async (simulateError = false ): Promise<UserInterface[]>   => {
     const [response] = await Promise.all([
-        fetch(simulateError() ? API_USERS_ENDPOINT_VALID : API_USERS_ENDPOINT_INVALID , OPTIONS),
+        fetch(simulateError ? API_USERS_ENDPOINT_INVALID : API_USERS_ENDPOINT_VALID, OPTIONS),
         delay(DELAY)
     ])
 
@@ -25,4 +23,4 @@ export const fetchData: Promise<UserInterface[]> = (async () => {
         throw new Error("Failed to fetch data")
     }
      return response.json()
-})()
+}

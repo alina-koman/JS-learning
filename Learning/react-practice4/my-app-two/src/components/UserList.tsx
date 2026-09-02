@@ -1,16 +1,21 @@
 import {use} from "react"
-import {fetchData} from "../api/api.ts"
+import type {UserInterface} from "../types/user.interface.ts"
 
-const UserList = () => {
-    const users = use(fetchData)
+interface UserListProps {
+    promise: Promise<UserInterface[]>
+}
+
+const UserList = ({promise}: UserListProps) => {
+    const users = use(promise)
 
     return (
-        <div>
+        <div className="user-list">
             <h1>Список користувачів</h1>
             <ul>
                 {users.map((user) => (
-                    <li key={user.id}>
-                        {user.name}: {user.email}
+                    <li key={user.id} className="user-list-item">
+                        <strong>{user.name}</strong>
+                        <span>{user.email}</span>
                     </li>
                 ))}
             </ul>
