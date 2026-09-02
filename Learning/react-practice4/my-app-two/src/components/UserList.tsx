@@ -15,12 +15,6 @@ const UserList = () => {
             .then(data => {
                 setUsers(data)
             })
-            .catch ((error: Error) => {
-                setError(error)
-            })
-            .finally(() => {
-                setLoading(false)
-            })
      }, [])
 
     if (loading) {
