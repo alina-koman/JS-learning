@@ -1,28 +1,8 @@
-import {useEffect, useState} from "react"
-import type {UserInterface} from "../types/user.interface.ts"
+import {use} from "react";
 import {fetchData} from "../api/api.ts"
 
 const UserList = () => {
-    const [users, setUsers] = useState<UserInterface[]>([])
-    const [loading, setLoading] = useState<boolean>(false)
-    const [error, setError] = useState<Error | null>(null)
-
-    useEffect(() => {
-        setLoading(true)
-        setError(null)
-
-        fetchData()
-            .then(data => {
-                setUsers(data)
-            })
-     }, [])
-
-    if (loading) {
-        return <div>Loading...</div>
-    }
-    if (error) {
-        return <div>Error: {error.message}</div>
-    }
+    const users = use(fetchData)
 
     return (
         <div>
