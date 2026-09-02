@@ -1,15 +1,9 @@
-import UserList from "./UserList.tsx";
-import {Suspense} from "react";
-import Loader from "./Loader.tsx";
+import Root from "./Root.tsx";
 
 function App() {
 
   return (
-    <div>
-        <Suspense fallback={<Loader />}>
-            <UserList />
-        </Suspense>
-    </div>
+   <Root />
   )
 }
 
