@@ -1,9 +1,11 @@
 import type {UserInterface} from "../types/user.interface.ts"
+import {delay} from "../helpers/delay.ts";
 
 const API_URL = "https://jsonplaceholder.typicode.com/users"
 
-export const fetchData = fetch(API_URL)
-        .then((response: Response) => {
+export const fetchData = delay(2000)
+    .then(() => fetch(API_URL))
+    .then((response: Response) => {
         if (!response.ok) {
             throw new Error("Failed to fetch data")
         }
