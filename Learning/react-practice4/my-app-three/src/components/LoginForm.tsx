@@ -9,12 +9,12 @@ interface State {
 
 const LoginForm = () => {
 
-    const [state, submitAction] = useActionState<State, FormData>(login, {
+    const [{data, error}, submitAction] = useActionState<State, FormData>(login, {
         data: null,
         error: null
     })
 
-    async function login(prevState: State , formData: FormData){
+    async function login(_prevState: State , formData: FormData){
         const username = formData.get('username') as string
         const password = formData.get('password') as string
 
@@ -24,9 +24,9 @@ const LoginForm = () => {
             return {data, error: null}
         } catch (error: unknown) {
             if (error instanceof Error) {
-                return {...prevState, error: error.message}
+                return {data: null, error: error.message}
             } else {
-                return {...prevState, error: 'An unknown error has occurred.'}
+                return {data: null, error: 'An unknown error has occurred.'}
             }
         }
     }
@@ -58,8 +58,8 @@ const LoginForm = () => {
         <button type={"submit"}>
             Log in
         </button>
-        {state.data && <p className="login-form__message login-form__message--success">{state.data.username}</p>}
-        {state.error && <p className="login-form__message login-form__message--error">{state.error}</p>}
+        {data && <p className="login-form__message login-form__message--success">{data.username}</p>}
+        {error && <p className="login-form__message login-form__message--error">{error}</p>}
     </form>
   )
 }
