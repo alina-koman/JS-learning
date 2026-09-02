@@ -1,8 +1,9 @@
 import type {UserInterface} from "../types/user.interface.ts"
-import {delay} from "../helpers/delay.ts";
+import {delay} from "../helpers/delay.ts"
 
 const API_URL = "https://jsonplaceholder.typicode.com"
-const API_USERS_ENDPOINT = API_URL + "/users"
+const API_USERS_ENDPOINT_VALID = API_URL + "/users"
+const API_USERS_ENDPOINT_INVALID = API_URL + "/users/invalid"
 const DELAY = 2000
 const OPTIONS = {
     method: "GET",
@@ -12,9 +13,11 @@ const OPTIONS = {
     }
 }
 
-export const fetchData: Promise<UserInterface> = (async () => {
+const simulateError = () => Math.random() > 0.5
+
+export const fetchData: Promise<UserInterface[]> = (async () => {
     const [response] = await Promise.all([
-        fetch(API_USERS_ENDPOINT, OPTIONS),
+        fetch(simulateError() ? API_USERS_ENDPOINT_VALID : API_USERS_ENDPOINT_INVALID , OPTIONS),
         delay(DELAY)
     ])
 

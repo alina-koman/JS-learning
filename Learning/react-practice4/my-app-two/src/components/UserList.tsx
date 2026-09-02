@@ -1,4 +1,4 @@
-import {use} from "react";
+import {use} from "react"
 import {fetchData} from "../api/api.ts"
 
 const UserList = () => {
