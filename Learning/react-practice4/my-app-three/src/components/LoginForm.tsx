@@ -1,11 +1,7 @@
 import {useActionState} from "react"
 import {fakeLogin} from "../utils/fakeLogin.ts"
-import type {LoginDataInterface} from "../types/loginData.interface.ts";
-
-interface State {
-    data: LoginDataInterface | null
-    error: string | null
-}
+import Button from "./Button.tsx"
+import type { State } from "../types/state.interface.ts"
 
 const LoginForm = () => {
 
@@ -55,9 +51,7 @@ const LoginForm = () => {
             />
         </div>
 
-        <button type={"submit"}>
-            Log in
-        </button>
+        <Button />
         {data && <p className="login-form__message login-form__message--success">{data.username}</p>}
         {error && <p className="login-form__message login-form__message--error">{error}</p>}
     </form>
